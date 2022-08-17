@@ -1,5 +1,19 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+    __author__ = "Renato Patron"
+    __copyright__ = "Copyright 2022"
+    __license__ = "GPL"
+    __version__ = "0.1"
+    __maintainer__ = "Jurelex"
+    __email__ = "jurelex@outlook.com"
+    __status__ = "Production`
+"""
+# Imports
+
 import itertools
 
+# Creates out1.txt and out2.txt files after deleting any blank lines in the front.txt and back.txt files.
 open('out1.txt','w').write(
     ''.join(
         l for l in open(
@@ -9,12 +23,18 @@ open('out2.txt','w').write(
         l for l in open(
             'back.txt') if l.strip())) 
 
+# Creates deck1.txt and deck2.txt.
+
 f_1 = open("out1.txt", "r")
 with open("deck1.txt", "w") as w:
     for x in f_1:
+        # Stores the amount of times a card is included in the deck
         times = int(x[0:2])
+        # Stores the name of the card
         card = x[2:]
+        # Cleans the card name, by replacing the comma for a blank space
         clean_card = card.replace(",", " ")
+        # outputs the card name
         while times > 0:
             w.write(f'"{clean_card.strip()}"\n')
             times -=1
@@ -22,13 +42,19 @@ with open("deck1.txt", "w") as w:
 f_2 = open("out2.txt", "r")
 with open("deck2.txt", "w") as w:
     for x in f_2:
+        # Stores the amount of times a card is included in the deck
         times = int(x[0:2])
+         # Stores the name of the card
         card = x[2:]
+        # Cleans the card name, by replacing the comma for a blank space
         clean_card = card.replace(",", " ")
+        # outputs the card name
         while times > 0:
             w.write(f'"{clean_card.strip()}"\n')
             times -=1
-            
+
+# Uses the deck1.txt and deck2.txt files and merges them as a CSV file following the template in 
+# https://mpcfill.com/static/cardpicker/template.9e9a90cf46aa.csv
 filenames = ['deck1.txt', 'deck2.txt']
 
 with open('deck1.txt') as src1, open('deck2.txt', 'r') as src2, open('merged.csv', 'w') as dst:
@@ -36,24 +62,3 @@ with open('deck1.txt') as src1, open('deck2.txt', 'r') as src2, open('merged.csv
     for line_from_first, line_from_second in itertools.zip_longest(src1, src2):
         if line_from_first is not None:
             dst.write(f"1, {line_from_first.strip()}, {line_from_second.strip()}\n")
-        # if line_from_second is not None:
-        #     dst.write(line_from_second)
-
-  
-# # Open file3 in write mode
-# with open('final_deck.txt', 'w') as outfile:
-
-  
-#     # Iterate through list
-#     for names in filenames:
-  
-#         # Open each file in read mode
-#         with open(names) as infile:
-  
-#             # read the data from deck1 and
-#             # file2 and write it in file3
-#             outfile.write(infile.read())
-  
-#         # Add '\n' to enter data of file2
-#         # from next line
-#         outfile.write("\n")
