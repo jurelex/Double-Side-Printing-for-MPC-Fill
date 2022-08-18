@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
     __author__ = "Renato Patron"
-    __copyright__ = "Copyright 2022"
     __license__ = "GPL"
     __version__ = "0.1"
     __maintainer__ = "Jurelex"
