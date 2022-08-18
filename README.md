@@ -3,7 +3,8 @@
 It creates a CSV file to be used at MPCfill.com<br>
 It has been tested with txt files downloaded from mtggoldfish.com<br>
 <s>The file merge.py and the 2 .txt deck files (front.txt and back.txt) need to be in the same folder.</s><br>
-Place the decklist text files in the respective front_decks or back_decks folder.
+Place the decklist text files in the respective front_decks or back_decks folder.<br>
+Make sure that there is the same number of files in both folders.<br>
 To run the script type:<br>
 <i>python merge.py</i><br>
 The file merged.csv will be generated and placed in the CSV folder.<br>
