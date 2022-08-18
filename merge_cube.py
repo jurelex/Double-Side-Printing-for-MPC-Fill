@@ -68,7 +68,7 @@ f_2 = open("temp/out2.txt", "r")
 with open("temp/deck2.txt", "w") as w:
     for x in f_2:
         # Stores the amount of times a card is included in the deck
-        times = int(x[0:2])
+        #times = int(x[0:2])
          # Stores the name of the card
         #card = x[2:]
         card = x
